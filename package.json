@@ -1,5 +1,5 @@
 {
-  "name": "cli-tools",
+  "name": "notely",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,9 @@
     "type": "git",
     "url": "git+https://github.com/Sushant696/notely_cli_tool.git"
   },
+  "bin": {
+    "notely": "index.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,5 +19,9 @@
     "url": "https://github.com/Sushant696/notely_cli_tool/issues"
   },
   "homepage": "https://github.com/Sushant696/notely_cli_tool#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "inquirer": "^8.2.5",
+    "yargs": "^18.0.0"
+  }
 }
