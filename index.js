@@ -21,10 +21,14 @@ else {
 }
 
 function addTodo() {
-  console.log(process.argv, "hehe");
-  fs.writeFile(`${filePath}/${month}- ${day}.md`, "This is my newly added todo", (err) => {
+  const note = process.argv.slice(3).join(" ") || "Empty Note"
+  const content = `- [ ] ${note}\n`
+  fs.appendFile(`${filePath}/${month}- ${day}.md`, content, {}, (err) => {
     if (err) {
       console.error(err.message)
+    }
+    else {
+      console.log("Note Added")
     }
   })
 }
@@ -34,6 +38,8 @@ function readFileContent() {
     if (err) {
       console.error(err)
     }
+    console.log("Your Notes for", month, day)
+    console.log(" ")
     console.log(data)
   })
 }
