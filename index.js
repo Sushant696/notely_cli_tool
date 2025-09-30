@@ -21,16 +21,20 @@ else {
 }
 
 function addTodo() {
-  fs.writeFile(`${filePath}/${month}- ${day}.md`, "utf-8")
-
-  // console.log(process.argv, "hehe");
+  console.log(process.argv, "hehe");
+  fs.writeFile(`${filePath}/${month}- ${day}.md`, "This is my newly added todo", (err) => {
+    if (err) {
+      console.error(err.message)
+    }
+  })
 }
 
 function readFileContent() {
-  fs.readFile(`${filePath}/${month}- ${day}.md`, "this is my note", { flag: 'a' }, (err) => {
+  fs.readFile(`${filePath}/${month}- ${day}.md`, 'utf-8', (err, data) => {
     if (err) {
       console.error(err)
     }
+    console.log(data)
   })
 }
 
