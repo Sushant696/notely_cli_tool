@@ -23,7 +23,7 @@ else {
 function addTodo() {
   const note = process.argv.slice(3).join(" ") || "Empty Note"
   const content = `- [ ] ${note}\n`
-  fs.appendFile(`${filePath}/${month}- ${day}.md`, content, {}, (err) => {
+  fs.appendFile(`${filePath}/${month}- ${String(day).length === 1 ? "0" + day : day}.md`, content, {}, (err) => {
     if (err) {
       console.error(err.message)
     }
@@ -34,7 +34,7 @@ function addTodo() {
 }
 
 function readFileContent() {
-  fs.readFile(`${filePath}/${month}- ${day}.md`, 'utf-8', (err, data) => {
+  fs.readFile(`${filePath}/${month}- ${String(day).length === 1 ? "0" + day : day}.md`, 'utf-8', (err, data) => {
     if (err) {
       console.error(err)
     }
@@ -43,7 +43,6 @@ function readFileContent() {
     console.log(data)
   })
 }
-
 
 function prompter() {
   const prompt = inquirer.createPromptModule()
@@ -57,5 +56,3 @@ function prompter() {
     addTodo()
   })
 }
-
-
