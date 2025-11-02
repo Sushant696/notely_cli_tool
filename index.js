@@ -4,7 +4,7 @@ const fs = require("fs")
 const inquirer = require("inquirer")
 const convertDate = require('./utils/date.js')
 
-const filePath = '/run/media/sushantbabuprasai/Sushant/Obsidian Vault/To dos'
+const filePath = "/run/media/sushant/Sushant/Obsidian Vault/To dos"
 const timeStamp = Date.now()
 const date = new Date(timeStamp)
 const { month, day } = convertDate(date)
